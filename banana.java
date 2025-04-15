@@ -4,11 +4,18 @@ public class banana extends Actor
 {
     public void act()
     {
-        move(-100);
+        move(-10);
         
         if (getX() <= 0)
         {
             resetBanana();
+        }
+        
+        if(isTouching(Hero.class))
+        {
+            Skull skull = new Skull();
+            getWorld().addObject(skull, 300, 200);
+            getWorld().removeObject(this);
         }
     }
     
